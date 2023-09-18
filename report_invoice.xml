@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <template id="report_invoice_report" inherit_id="account.report_invoice_document">
+            <xpath expr="//div[@id='informations']" position="before">
+                <t t-if="o.sale_order_id.payment_term_id">
+                    <div class="mb-1">
+                        <strong>Payment Terms:&#160;</strong>
+                        <t t-out="o.sale_order_id.payment_term_id.name"/>
+                    </div>
+                </t>
+                <t t-if="o.sale_order_id.x_studio_related_field_SiJCe">
+                    <div class="mb-1">
+                        <strong>Payment Location:&#160;</strong>
+                        <t t-out="o.sale_order_id.x_studio_related_field_SiJCe"/>
+                    </div>
+                </t>
+                <t t-if="o.partner_id.x_studio_many2one_field_y6Djm">
+                    <div class="mb-1">
+                        <strong>Payment Type:&#160;</strong>
+                        <t t-out="o.partner_id.x_studio_many2one_field_y6Djm.x_name"/>
+                    </div>
+                </t>
+                <t t-if="o.payment_method">
+                    <div class="mb-1">
+                        <strong>Payment Method:&#160;</strong>
+                        <t t-out="o.payment_method"/>
+                    </div>
+                </t>
+                <div class="row">
+                    <t t-if="o.partner_id.latitude">
+                        <div class="mb-1 col-3">
+                            <strong>Latitude:&#160;</strong>
+                            <t t-out="o.partner_id.latitude"/>
+                        </div>
+                    </t>
+                    <t t-if="o.partner_id.latitude">
+                        <div class="mb-1 col-3">
+                            <strong>Longitude:&#160;</strong>
+                            <t t-out="o.partner_id.longitude"/>
+                        </div>
+                    </t>
+                </div>
+
+            </xpath>
+    </template>
+
+</odoo>
